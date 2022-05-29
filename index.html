@@ -1,0 +1,81 @@
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./bootstrap.min.css">
+    <title>Enchantler</title>
+    <script>
+        function dothis() {
+            document.getElementById('dataChart').classList.remove('main');
+            document.getElementById('dataChart').classList.add('load');
+            document.getElementById("imgbox").style.visibility = "hidden";
+        }
+    
+        function done() {
+            document.getElementById("imgbox").style.visibility = "visible";
+            datachart = document.getElementById('dataChart');
+            if (datachart.classList.contains('load')) {
+                datachart.classList.remove('load');
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    Enchantler
+                </a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active" id="analysis"><a href="#">Analysis</a></li>
+                <li class="" id="about"><a href="./about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="sidenav">
+        <div class="accordian">
+            <div class="accordian_title">Availability</div>
+            <ul class="items_block">
+                <li><a href="./PricevsAvailable.php" target="imgbox" onclick="dothis()"> vs Price</a><br /></li>
+                <li><a href="./MakevsAvailable.php" target="imgbox" onclick="dothis()"> by Manufacturer</a><br /></li>
+                <li><a href="./Selector.html" target="imgbox" onclick="dothis()"> Selector by Price</a><br /></li>
+            </ul>
+        </div>
+
+        <div class="accordian">
+            <div class="accordian_title">Electric vehicles</div>
+            <ul class="items_block">
+                <li><a href="./MakevsEV.php" target="imgbox" onclick="dothis()"> by Manufacturer</a><br /></li>
+                <li><a href="./StatevsEV.php" target="imgbox" onclick="dothis()"> vs State</a><br /></li>
+            </ul>
+        </div>
+
+        <div class="accordian">
+            <div class="accordian_title">Sales</div>
+            <ul class="items_block">
+                <li><a href="./HPvsSales.php" target="imgbox" onclick="dothis()"> vs Horsepower</a><br /></li>
+                <li><a href="./CurbvsSales.php" target="imgbox" onclick="dothis()"> vs Curb weight</a><br /></li>
+                <li><a href="./fuelEffvsSales.php" target="imgbox" onclick="dothis()"> vs Fuel efficiency</a><br /></li>
+                <li><a href="./PricevsSales.php" target="imgbox" onclick="dothis()"> vs Price</a><br /></li>
+                <li><a href="./ManufacvsSales.php" target="imgbox" onclick="dothis()"> by Manufacturer</a><br /></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main" id="dataChart">
+        <iframe frameborder="0" scrolling="yes" width="100%" height="100%" name="imgbox" id="imgbox" onload="done()">
+            <p>iframes are not supported by your browser.</p>
+        </iframe><br />
+    </div>
+
+    <script>
+        const accordian = document.getElementsByClassName('accordian_title');
+        for (x = 0; x < accordian.length; x++) {
+            accordian[x].addEventListener('click', function () {
+                this.parentElement.classList.toggle('expand');
+            })
+        }
+    </script>
+</body>

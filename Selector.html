@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        input[name="submit"] {
+            cursor: pointer;
+            height: 40px;
+            width: 150px;
+            margin: 20px;
+            border-radius: 15px;
+            border: #eae8e8a3 2px solid;
+            letter-spacing: 2px;
+            transition: 0.5s;
+        }
+
+        input[name="submit"]:hover {
+            transform: scale(1.2);
+            letter-spacing: 2.5px;
+        }
+
+        td {
+            font-family: sans-serif;
+            font-size: medium;
+        }
+
+        select {
+            border-radius: 6px;
+            transform: scale(1.2);
+            margin: 5px 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <div>
+            <img src="./images/car.png" style="box-shadow: 0 6px 16px 0 rgb(0 0 0 / 20%); margin: 10px;">
+        </div>
+        <div>
+            <table>
+                <form method="post" action="./Selector.php">
+                    <tr>
+                        <td>From Price:</td>
+                        <td>
+                            <select name="lowerbudget">
+                                <option value="">Select...</option>
+                                <option value="500000">5,00,000</option>
+                                <option value="700000">7,00,000</option>
+                                <option value="1000000">10,00,000</option>
+                                <option value="1500000">15,00,000</option>
+                                <option value="3000000">30,00,000</option>
+                                <option value="5000000">50,00,000</option>
+                                <option value="10000000">1,00,00,000</option>
+                                <option value="20000000">2,00,00,000</option>
+                            </select>
+                        </td>
+                    </tr>
+                    </br>
+                    <tr>
+                        <td>To Price:</td>
+                        <td>
+                            <select name="higherbudget">
+                                <option value="">Select...</option>
+                                <option value="500000">5,00,000</option>
+                                <option value="700000">7,00,000</option>
+                                <option value="1000000">10,00,000</option>
+                                <option value="1500000">15,00,000</option>
+                                <option value="3000000">30,00,000</option>
+                                <option value="5000000">50,00,000</option>
+                                <option value="10000000">1,00,00,000</option>
+                                <option value="20000000">2,00,00,000</option>
+                            </select>
+                        </td>
+                    </tr>
+                    </br>
+                    <tr></tr>
+            </table>
+            <input type="submit" name="submit" value="SUBMIT" />
+            </form>
+    </center>
+    </div>
+</body>
+
+</html>

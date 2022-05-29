@@ -1,0 +1,186 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-brand {
+  width: 14.75vw;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: -2px 2px 5px #818181;
+}
+
+.sidenav {
+  height: 100%;
+  width: 15%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(42, 40, 40);
+  overflow-x: hidden;
+  padding: 50px 0px 10px 0px;
+}
+
+.sidenav .dataset li {
+  position: relative;
+  list-style-type: none;
+  border-radius: 33px 0 0 33px;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.sidenav .dataset li.clicked {
+  background-color: white;
+}
+
+.sidenav .dataset a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: black;
+}
+
+.sidenav .accordian {
+  position: relative;
+  margin: 5px 10px;
+}
+
+.sidenav .accordian .accordian_title {
+  position: relative;
+  cursor: pointer;
+  background-color: black;
+  padding: 10px;
+  color: #818181;
+  font-size: 18px;
+  font-family: monospace;
+}
+
+.sidenav .accordian .accordian_title:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .accordian .accordian_title::before {
+  content: '+';
+  font-size: 1.em;
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.sidenav .accordian.expand .accordian_title::before {
+  content: '-';
+}
+
+.sidenav .accordian .items_block {
+  position: relative;
+  list-style-type: none;
+  height: 0;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.sidenav .accordian.expand .items_block {
+  height: auto;
+}
+
+.sidenav .accordian .items_block li {
+  padding: 8px;
+  font-size: 15px;
+  background-color: #818181;
+  margin: 2px 0;
+}
+
+.sidenav .accordian .items_block li a {
+  text-decoration: none;
+  color: rgb(25, 25, 25);
+}
+
+.sidenav .accordian .items_block li a:hover {
+  color: #f1f1f1;
+}
+
+#dataChart {
+  margin-top: 50px;
+  margin-left: 15%;
+  padding: 0px 10px;
+  height: calc(100% - 50px);
+}
+
+#dataChart.main {
+  background: url(./images/welcome.jpg) center center no-repeat;
+}
+
+#dataChart.load {
+  background: url(./images/loading.gif) center center no-repeat;
+}
+
+#welcomeAbout {
+  padding: 100px 0;
+  display: block;
+}
+
+#subframe {
+  margin-left: 5%;
+}
+
+#transformation {
+  margin-left: 5%;
+}
+
+.datainfo {
+  display: none;
+  margin-top: 60px;
+  margin-left: 20%;
+  padding: 0px 10px;
+  font-family: serif;
+  font-size: large;
+}
+
+.datainfo h1 {
+  font-family: initial;
+}
+
+.datainfo h3 {
+  font-family: fantasy;
+}
+
+.datainfo h4 {
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td,
+#customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#customers tr:hover {
+  background-color: #ddd;
+}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}

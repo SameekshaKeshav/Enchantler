@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="./bootstrap.min.css">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Enchantler</title>
+    <script>
+        function visible(ele) {
+            var data = document.getElementsByClassName('datainfo');
+            for (i = 0; i < data.length; i++) {
+                data[i].style.display = "none";
+            }
+
+            var visData = document.getElementById(ele);
+            if (visData.style.display == "none") {
+                visData.style.display = "block";
+            }
+            else {
+                visData.style.display = "none";
+            }
+
+            document.getElementById('welcomeAbout').style.display = "none";
+            var dataItem = document.getElementsByClassName("dataItems");
+            for (i = 0; i < dataItem.length; i++) {
+                dataItem[i].classList.remove('clicked');
+            }
+            for (i = 0; i < data.length; i++) {
+                if (data[i].style.display == "block") {
+                    dataItem[i].classList.add("clicked");
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    Enchantler
+                </a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="" id="analysis"><a href="./index.html">Analysis</a></li>
+                <li class="active" id="about"><a href="#">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="sidenav">
+        <ul class="dataset">
+            <li class="dataItems"><a href="#" onclick="visible('Engage')"> Cars engage</a></li>
+            <li class="dataItems"><a href="#" onclick="visible('EVVehicles')"> IHS EV registrations</a></li>
+            <li class="dataItems"><a href="#" onclick="visible('Sales')"> Car Sales</a></li>
+        </ul>
+    </div>
+
+    <div>
+        <center>
+            <img id="welcomeAbout" src="./images/about.png" style="margin-left: 15%;">
+        </center>
+    </div>
+
+    <div id="Engage" class="datainfo">
+        <h1>Engage</h1>
+        <h3>Source dataset:</h3>
+        <ul style="list-style-type:disc; margin-left:5%">
+            <li>
+                <h4>Its a sample dataset provided for the microsoft engage mentorship program.</h4>
+            </li>
+            <li>
+                <h4>The dataset is about availability of model and variants from the manufacturers.</h4>
+            </li>
+            <li>
+                <h4>Lot of attributes and classifications of the make models also available in this dataset.</h4>
+            </li>
+            <li>
+                <h4>The various attributes present in the dataset were:</h4>
+                <ol type="1" id="subframe">
+                    <li>Make: The manufacturer of the specific car is specified.</li>
+                    <li>Model: The model of the car under the manufacturer is specified in the coulumn.</li>
+                    <li>Variant: The variant indicates the type of vehicle as well as various attributes.</li>
+                    <li>Showroom Price: The present showroom price of the model is specified.</li>
+                    <li>Fuel type: The type of fuel the engine takes is mentioned in this column.</li>
+                    <li>Body type: The type of vehicle for example Hatchback SUV are mentioned in this column.</li>
+                </ol>
+            </li>
+        </ul>
+        <h3>Use cases:</h3>
+        <ul style="list-style-type:disc; margin-left:5%">
+            <li>
+                <h4>Availability vs Price:</h4>
+            </li>
+            <ol type="1" id="subframe">
+                <li>Describes the availability of models i.e. the number of models present against price range.</li>
+                <li>This will give a glimpse of price range that market and consumers are focussing on.</li>
+                <li>Its always a good indication that represents the prosperity levels in the population.</li>
+            </ol>
+            <li>
+                <h4>Availability by Manufacturer:</h4>
+            </li>
+            <ol type="1" id="subframe">
+                <li>Can be used to identify highly invested manufacturer in research and development which is indicated
+                    by the wide variety of offerings in the market.</li>
+            </ol>
+            <li>
+                <h4>Selector by Price:</h4>
+            </li>
+            <ol type="1" id="subframe">
+                <li>Helps users to filter out the cars available in a specific price range.</li>
+                <li>End user can explore models and varients available for the budget on his mind.</li>
+                <li>Can be further extended to include filtering by other attributes.</li>
+            </ol>
+        </ul>
+        <h3>Target dataset:</h3>
+        <ul style="list-style-type:disc; margin-left:5%">
+            <li>
+                <h4>Columns required were identified and only these columns were pulled from the source dataset.</h4>
+            </li>
+            <li>
+                <h4>The various attributes present in the target dataset are:</h4>
+            </li>
+            <ol type="1" id="subframe">
+                <li>Make: The manufacturer of the specific car is specified.</li>
+                <li>Model: The model of the car under the manufacturer is specified in this coulumn.</li>
+                <li>Variant: The variant indicates the type of vehicle as well as various attributes.</li>
+                <li>Showroom Price: The present showroom price of the model is converted to is nearby value.</li>
+            </ol>
+            <li>
+                <h4>Price range was identified as a computed attribute required for the implementation of the use case.
+                </h4>
+            </li>
+        </ul>
+        <h3>Transformation:</h3>
+        <ul style="list-style-type:disc; margin-left:5%">
+            <li>The computation of price range was implemented in python using the pandas dataframe.</li>
+        </ul>
+    </div>
+
+    <div id="EVVehicles" class="datainfo">
+        <h1>EVVehicles</h1>
+        <h3>Source dataset:</h3>
+        <ul style="list-style-type:disc; margin-left:5%">
+            <li>
+                <h4>It was a dataset procured from ihsmarkit.com.</h4>
+            </li>
+            <li>
+                <h4>It talks about the registration of electric vehicles across the country of USA.</h4>
+            </li>
+            <li>
+                <h4>Lot of attributes and classifications of the make models accross different states of USA are also
+                    available in this dataset.</h4>
+            </li>
+            <li>
+                <h4>The various attributes present are:</h4>
+                <ol type="1" id="subframe">
+                    <li>STATE: Specifies a state in the USA where different MakeModels are listed.</li>
+                    <li>MAKE: The manufacturer of the car model is specified.</li>
+                    <li>MODEL: The model of the car under the manufacturer is specified in this coulumn.</li>
+                    <li>EV_VEHICLES: The number of electric vehicles registered in the particular state is recorderded
+                        under this column.</li>
+                    <li>MILES/kWh: The number of miles the car can run per kWh is specified in this column.</li>
+                </ol>
+            </li>
+        </ul>
+        <h3>Use cases:</h3>
+        <ul style="list-style-type:disc; margin-left:5%">
+            <li>
+                <h4>Electric Vehicles by Manufacturer:</h4>
+            </li>
+            <ol type="1" id="subframe">
+                <li>Can be used to identify the manufacturer ,whose cars are maximum registered across all the states in
+                    USA.</li>
+            </ol>
+            <li>
+                <h4>Electric Vehicles vs State:</h4>
+            </li>
+            <ol type="1" id="subframe">
+                <li>A pie chart where area of sector is analogus to number of electric vehicles present in the state is
+                    painted on the screen.</li>
+                <li>Can be used the identify the most green state by looking at the largest sector hence identifing the
+                    most electric vehicles containing state.</li>
+            </ol>
+        </ul>
+        <h3>Target dataset:</h3>
+        <ul style="list-style-type:disc; margin-left:5%">
+            <li>
+                <h4>The given state names were translated to a 2-letter state code.</h4>
+            </li>
+            <li>
+                <h4>The various attributes present in the target dataset are:</h4>
+            </li>
+            <ol type="1" id="subframe">
+                <li>STATE: Specifies a state in the USA where different MakeModels are listed.</li>
+                <li>STATE CODE: Specifies a 2-letter state code defined for each state in the USA.</li>
+                <li>MAKE: The manufacturer of the car model is specified.</li>
+                <li>MODEL: The model of the car under the manufacturer is specified in this coulumn.</li>
+                <li>EV_VEHICLES: The number of electric vehicles registered in the particular state is recorderded under
+                    this column.</li>
+                <li>MILES/kWh: The number of miles the car can run per kWh is specified in this column.</li>
+            </ol>
+            <li>
+                <h4>EV_VEHICLES was identified as a computed attribute for the implementation of use case.</h4>
+            </li>
+        </ul>
+        <h3>Transformation:</h3>
+        <ul style="list-style-type:disc; margin-left:5%">
+            <li>The given state names were translatted to a 2-letter state code using the VLOOKUP feature of excel.</li>
+            <li>The computation of range of EV_VEHICLES was implemented in python using the pandas dataframe.</li>
+        </ul>
+    </div>
+    
+    <div id="Sales" class="datainfo">
+        <h1>Car Sales</h1>
+        <h3>Source dataset:</h3>
+        <ul style="list-style-type:disc; margin-left:5%">
+            <li>
+                <h4>It was procured from public domain.</h4>
+            </li>
+            <li>
+                <h4>It tells us about the sales for a particular model given specific attributes of the car.</h4>
+            </li>
+            <li>
+                <h4>Lot of attributes and classifications of the make models along with its sales are available in this
+                    dataset.</h4>
+            </li>
+            <li>
+                <h4>The various attributes present are:</h4>
+                <ol type="1" id="subframe">
+                    <li>Manufacturer: The manufacturer for the model is specified in this column</li>
+                    <li>Model: The model of the car is specified in this dataset</li>
+                    <li>Sales in thousand: The sales of the car model divided by 1000 is mentioned in this column</li>
+                    <li>Price in thousands: The price of the car in thousand USD is mentioned in this column</li>
+                    <li>Horsepower: The energy of the engine in terms of horsepower is mentioned in this column</li>
+                    <li>Curb Weight: The default weight of the car is specified in this column</li>
+                    <li>Fuel efficiency: How efficiently the fuel is used can be determined from this column</li>
+                    <li>Power perf factor: Indicates the performance of the engine compares to the power</li>
+                </ol>
+            </li>
+        </ul>
+        <h3>Use cases:</h3>
+        <ul style="list-style-type:disc; margin-left:5%">
+            <li>
+                <h4>Sales vs horsepower:</h4>
+            </li>
+            <ol type="1" id="subframe">
+                <li>Helps in understanding the range of horsepower mostly bought by people across USA.</li>
+                <li>It helps in determining if horsepower is given preferance or the price as greater the hopsepower
+                    greater the price.</li>
+            </ol>
+            <li>
+                <h4>Sales vs Curb weight:</h4>
+            </li>
+            <ol type="1" id="subframe">
+                <li>Helps us determine if people prefer larger cars to smaller cars or vice versa.</li>
+                <li>The curb weight is one of the basic representation of the size of car.</li>
+            </ol>
+            <li>
+                <h4>Sales vs Fuel efficiency:</h4>
+            </li>
+            <ol type="1" id="subframe">
+                <li>Helps us determine if fuel efficiency is a factor that determines sales of a car.</li>
+                <li>Fuel efficiency is a technical detail not known to every common man.</li>
+            </ol>
+            <li>
+                <h4>Sales vs Price:</h4>
+            </li>
+            <ol type="1" id="subframe">
+                <li>Helps us analyse the price range that an average human being spends on his car across different
+                    states of USA.</li>
+            </ol>
+            <li>
+                <h4>Sales by manufacturer:</h4>
+            </li>
+            <ol type="1" id="subframe">
+                <li>Helps us identify succesful manufacturer in the market.</li>
+            </ol>
+        </ul>
+        <h3>Target dataset:</h3>
+        <ul style="list-style-type:disc; margin-left:5%">
+            <li>
+                <h4>The required columns were pulled from original dataset</h4>
+            </li>
+            <li>
+                <h4>The various attributes present in the target dataset are:</h4>
+            </li>
+            <ol type="1" id="subframe">
+                <li>Manufacturer: The manufacturer for the model is specified in this column</li>
+                <li>Sales in thousand: The sales of the car model divided by 1000 is mentioned in this column</li>
+                <li>Price in thousands: The price of the car in thousand USD is mentioned in this column</li>
+                <li>Horsepower: The energy of the engine in terms of horsepower is mentioned in this column</li>
+                <li>Curb Weight: The default weight of the car is specified in this column</li>
+                <li>Fuel efficiency: How efficiently the fuel is used can be determined from this column</li>
+                <li>Power perf factor: Indicates the performance of the engine compares to the power</li>
+            </ol>
+            <li>
+                <h4>Computed attributes for implementation of use cases:</h4>
+            </li>
+            <ol type="1" id="subframe">
+                <li>Curb weight</li>
+                <li>Horsepower</li>
+                <li>Fuel_efficiency</li>
+            </ol>
+        </ul>
+        <h3>Transformation:</h3>
+        <div id="transformation">
+            <h4>The initial sales dataset is made to run through a python script where the following changes are made:
+            </h4>
+            <ul style="list-style-type:disc; margin-left:5%">
+                <li>The model and the latest launch attributes are dropped</li>
+                <li>The records with missing valus are removed</li>
+                <li>If any unknown values are present the the record is removed</li>
+                <li>The values of:</li>
+                <ol type="1" id="subframe">
+                    <li>Curb weight were rounded in terms of 0.5's.</li>
+                    <li>Horsepower were rounded in terms of 50's.</li>
+                    <li>Fuel efficiency were rounded in terms of 2's.</li>
+                </ol>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
